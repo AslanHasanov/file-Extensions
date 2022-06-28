@@ -12,19 +12,25 @@ namespace File_Extensions
             switch (language)
             {
                 case "ENG":
-                    Console.WriteLine("Enter your file name :");
+                    Console.WriteLine("Enter your file name (.pdf .jpg .docs) Example: book.pdf");
                     break;
                 case "RUS":
-                    Console.WriteLine("Введите имя файла :");
+                    Console.WriteLine("Введите имя файла (.pdf .jpg .docs) Например: book.pdf");
                     break;
                 case "AZE":
-                    Console.WriteLine("Fayl adını daxil edin :");
+                    Console.WriteLine("Fayl adını daxil edin (.pdf .jpg .docs) Məsələn: book.pdf");
                     break;
                 default:
-                    Console.WriteLine("Enter your file name :");
+                    Console.WriteLine("Enter your file name (.pdf .jpg .docs) Example: book.pdf");
                     break;
-
             }
+
+            FileValidator document = new FileValidator(Console.ReadLine(), ".pdf", ".jpg", ".docs");           
+            Console.WriteLine("Enter file name and get extension :");
+            Console.WriteLine(document.DefineExtension(Console.ReadLine()));
+            Console.WriteLine("Available extensions : .pdf .jpg .docs");
+            Console.WriteLine("Enter file name and extension or only extension :");
+            Console.WriteLine(document.IsExtensionTrue(Console.ReadLine()));
         }
     }
     class FileValidator
@@ -36,7 +42,7 @@ namespace File_Extensions
         {
             _fileExtensions = extensions;
         }
-        public FileValidator(string fileName, params string[] extensions) :this(extensions)
+        public FileValidator(string fileName, params string[] extensions) : this(extensions)
         {
             _fileName = fileName;
         }
