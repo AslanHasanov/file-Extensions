@@ -27,4 +27,25 @@ namespace File_Extensions
             }
         }
     }
+    class FileValidator
+    {
+        private string[] _fileExtensions;
+        private string _fileName;
+
+
+
+
+        public FileValidator(params string[] extensions)
+
+        {
+            _fileExtensions = extensions;
+
+        }
+
+        public FileValidator(string fileName, params string[] extensions)
+        {
+            _fileName = fileName;
+            _fileExtensions = extensions;
+        }
+    }
 }
